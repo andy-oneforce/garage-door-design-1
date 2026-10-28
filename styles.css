@@ -285,7 +285,7 @@ body { overflow-x: hidden; }
 .faq details[open] summary { border-bottom: 1px solid var(--line); }
 .faq details p { margin: 0; padding: .9rem 1.1rem; color: var(--muted); }
 .draft-tag { display: inline-block; background: #fff3cd; color: #5c4400; border: 1px solid #e6c65c; border-radius: 4px; padding: 0 .4rem; font-weight: 700; font-size: .8rem; }
-.ba { position: relative; max-width: 56rem; margin: 0 auto; aspect-ratio: 16 / 10; overflow: hidden; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); --pos: 50%; }
+.ba { position: relative; max-width: 56rem; margin: 0 auto; aspect-ratio: 1200 / 650; overflow: hidden; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); --pos: 50%; }
 .ba img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .ba-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 4px; margin-left: -2px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35); pointer-events: none; }
