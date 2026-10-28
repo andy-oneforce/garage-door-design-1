@@ -318,3 +318,8 @@ body { overflow-x: hidden; }
 html.js .rv { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
 html.js .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .door-lift { display: none; } html.js .rv { opacity: 1; transform: none; transition: none; } }
+
+/* v5 */
+.hero-photo { display: block; width: 100%; height: auto; aspect-ratio: 10 / 7; object-fit: cover; border-radius: calc(var(--radius) - 4px); margin: 0 0 1rem; }
+.awards { display: block; width: 100%; max-width: 64rem; height: auto; margin: 0 auto 1rem; border-radius: var(--radius); }
+@media (min-width: 640px) { .reviews > li:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; max-width: calc(50% - .5rem); } }
