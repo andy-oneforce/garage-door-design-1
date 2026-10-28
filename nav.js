@@ -16,3 +16,9 @@
     }
   });
 })();
+
+document.querySelectorAll('[data-ba]').forEach(function (f) {
+  var r = f.querySelector('.ba-range');
+  var set = function () { f.style.setProperty('--pos', r.value + '%'); };
+  r.addEventListener('input', set); set();
+});
