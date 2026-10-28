@@ -175,3 +175,10 @@ section { padding: clamp(2.5rem, 6vw, 3.5rem) 0; }
 .footer-phone { display: inline-flex; align-items: center; gap: .4rem; font-weight: 800; font-size: 1.1rem; text-decoration: none; }
 .footer-bottom { border-top: 1px solid #1d3a5f; margin-top: 2rem; padding: 1rem 0; font-size: .85rem; color: #aebfd1; }
 .split > *, .grid > *, .hero-grid > * { min-width: 0; }
+
+/* ---------- Reviews (sample content during design stage) ---------- */
+.review { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow); }
+.review .stars { color: #b26a00; letter-spacing: .1em; font-size: 1.2rem; margin: 0 0 .4rem; }
+.review blockquote { margin: 0; }
+.review blockquote p { font-style: italic; margin: 0 0 .8rem; }
+.review .who { font-weight: 700; color: var(--navy); font-size: .92rem; margin: 0; }
