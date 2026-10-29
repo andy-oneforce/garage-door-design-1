@@ -191,7 +191,7 @@ body { overflow-x: hidden; }
 .brand img { height: 44px; width: auto; max-width: 100%; }
 .header-inner { flex-wrap: nowrap; gap: .5rem; padding-block: .4rem; }
 .header-call { padding: .55rem .9rem; min-height: 44px; white-space: nowrap; margin-left: auto; }
-.call-word { display: none; }
+.call-word { display: inline; margin-right: .3em; }
 .nav-toggle { min-height: 44px; min-width: 44px; }
 .nav li a { min-height: 44px; display: inline-flex; align-items: center; }
 .topstrip { background: var(--navy); color: #fff; font-size: .88rem; }
@@ -219,7 +219,7 @@ body { overflow-x: hidden; }
   .strip-inner { padding: 0 12px; }
   .strip-years { display: none; }
   .header-call .call-num { display: none; }
-  .header-call .call-word { display: inline; }
+  .header-call .call-word { display: inline; margin-right: 0; }
   .header-call { padding: .5rem .8rem; }
   .nav { order: 5; flex-basis: 100%; }
   .header-inner { flex-wrap: wrap; }
@@ -323,3 +323,6 @@ html.js .rv.in { opacity: 1; transform: none; }
 .hero-photo { display: block; width: 100%; height: auto; aspect-ratio: 10 / 7; object-fit: cover; border-radius: calc(var(--radius) - 4px); margin: 0 0 1rem; }
 .awards { display: block; width: 100%; max-width: 64rem; height: auto; margin: 0 auto 1rem; border-radius: var(--radius); }
 @media (min-width: 640px) { .reviews > li:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; max-width: calc(50% - .5rem); } }
+
+.owner-figure { margin: 0 0 1rem; text-align: center; }
+.owner-photo { display: block; margin: 0 auto; width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 3px solid var(--line); box-shadow: var(--shadow); }
