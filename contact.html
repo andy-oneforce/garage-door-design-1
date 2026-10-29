@@ -67,9 +67,7 @@
     </div>
     <div>
       <h2>Request an estimate</h2>
-      <form class="form-card" name="estimate" method="POST" action="thank-you.html" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="estimate">
-        <p class="hp" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <form class="form-card" id="estimate-form" novalidate>
         <div class="field">
           <label for="name">Name <span aria-hidden="true">*</span></label>
           <input id="name" name="name" type="text" autocomplete="name" required>
@@ -91,6 +89,7 @@
           <textarea id="msg" name="message" rows="3" placeholder="e.g. loud bang this morning, now it won't lift"></textarea>
         </div>
         <button class="btn btn-primary btn-lg btn-block" type="submit">Request my free estimate</button>
+        <p class="fine" id="form-status" role="status" aria-live="polite"></p>
         <p class="fine">Fields marked * are required. We'll never share your info. For emergencies, please call — it's faster.</p>
       </form>
     </div>
@@ -129,5 +128,31 @@
   </div>
 </footer>
 <script src="nav.js" defer></script>
+<script>
+/* Estimate form -> Google Sheet + email (Apps Script web app, ACT-00803); same pattern as the OneForce site contact form. */
+(function () {
+  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbzTrJ-C2S-Hc40c9Ulkrngq4m8j1lXR4VglooMVdEj3ZH_l6rJLdCO00sHUUyKJgz45/exec";
+  var form = document.getElementById('estimate-form');
+  if (!form) return;
+  var status = document.getElementById('form-status');
+  var btn = form.querySelector('button[type="submit"]');
+  var label = btn.textContent;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var data = new FormData(form);
+    data.append('page', location.href);
+    data.append('submittedAt', new Date().toISOString());
+    btn.disabled = true; btn.textContent = 'Sending\u2026'; status.textContent = '';
+    // no-cors: Apps Script returns no CORS headers; the row and email are done server-side when fetch resolves.
+    fetch(SHEET_ENDPOINT, { method: 'POST', mode: 'no-cors', body: data })
+      .then(function () { location.href = 'thank-you.html'; })
+      .catch(function () {
+        status.textContent = 'Something went wrong sending your request. Please call 425-301-7543.';
+        btn.disabled = false; btn.textContent = label;
+      });
+  });
+})();
+</script>
 </body>
 </html>
